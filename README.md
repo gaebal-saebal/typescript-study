@@ -1,6 +1,6 @@
 # typescript-study
 
-<img src="https://api.iconify.design/vscode-icons:file-type-typescript-official.svg?color=Black">
+<img src="https://prismablog.vercel.app/blog/posts/typescript-pocketguide.png">
 
 ## 기간
 
