@@ -32,6 +32,8 @@ PART II : 유동적
 
 ex. js-ha / 230522
 
+단, 1일에 여러 차례 commit을 할 경우에는 뒤에 (1), (2), (3)... 과 같이 커밋 회차를 추가합니다.
+
 ## 관련 링크
 
 [TypeScript official Docs](https://www.typescriptlang.org/ko/docs/)
