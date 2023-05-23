@@ -100,3 +100,105 @@ let New4: NewType = {
   email: '123',
   adult: false,
 };
+
+// Literal Types
+// 변수에 뭐가 들어올지 더 엄격하게 관리가능
+// 특정 글자나 숫자만 가질 수 있게 제한을 두는 타입
+
+function game(x: '가위' | '바위' | '보'): ('가위' | '바위' | '보')[] {
+  return ['가위', '바위'];
+}
+
+// const 변수의 한계 => 오브젝트 안의 내용물은 바꿀 수 있잖아
+
+let Doc: 'kim' | 'ha';
+
+Doc = 'ha';
+
+//
+var 자료 = {
+  name: 'kim',
+} as const; // 사용안하면 타입이 달라서 에러발생함
+
+function 내함수(a: 'kim') {}
+내함수(자료.name);
+// 자료.name은 string타입이지 'kim'타입이 아니잖아
+// => as const 사용해봐
+
+// 함수 타입지정은 () => {}
+type NumOut = (x: number, y: number) => number;
+let ABC: NumOut = function (x, y) {
+  return x + y;
+};
+
+//
+type Variable = {
+  name: string;
+  age: number;
+  plusOne: (x: number) => number;
+  changeName: () => void; // 아무것도 리턴하면 안돼
+};
+
+let 회원정보: Variable = {
+  name: 'kim',
+  age: 30,
+  plusOne(x) {
+    return x + 1;
+  },
+  changeName: () => {
+    console.log('안녕');
+  },
+};
+console.log(회원정보.plusOne(1));
+console.log(회원정보.changeName()); // undefined
+
+//
+
+// type NumOut = (x: number, y: number) => number;
+// let ABC: NumOut = function (x, y) {
+//   return x + y;
+// };
+
+type AAA = (x: string) => string;
+let cutZero: AAA = function (x) {
+  return x.replace('0', '');
+};
+console.log(cutZero('03'));
+
+type BBB = (z: string) => number;
+let removeDash: BBB = function (z) {
+  let ccc = z.replace(/\-/g, '');
+  return Number(ccc);
+};
+console.log(removeDash('010-23'));
+
+//
+
+function 만들함수(x: string, y: AAA, z: BBB) {
+  let C = y(x);
+  let D = z(C);
+  console.log(D);
+}
+
+만들함수('010-1111-2222', cutZero, removeDash);
+
+//
+let 제목 = document.querySelector('#title');
+
+if (제목 !== null) {
+  제목.innerHTML = '반갑소';
+}
+
+//
+let 이미지 = document.querySelector('#image');
+if (이미지 instanceof HTMLImageElement) {
+  이미지.src = 'new.jpg';
+}
+
+//
+let 링크 = document.querySelectorAll('.naver');
+링크.forEach((x) => {
+  if (x instanceof HTMLAnchorElement) {
+    x.href = ' https://kakao.com';
+  }
+});
