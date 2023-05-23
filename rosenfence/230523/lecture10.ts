@@ -12,6 +12,7 @@ if (title instanceof HTMLElement) {
 }
 // 세번째 방법(잘안씀)
 // 2번째 줄 맨 뒤에 as Element로 type을 Element로 고정시키는 방법
+// let title = document.querySelector('#title') as Element
 
 // 네번째 방법 : optional chaining
 if (title?.innerHTML !== undefined) {
