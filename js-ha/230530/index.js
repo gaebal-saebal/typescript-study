@@ -15,7 +15,8 @@ var User2 = /** @class */ (function () {
     function User2() {
     }
     User2.addOne = function (p) {
-        User2.x = User2.x + p;
+        // 리턴 안해주면 void 타입이라 undefined 뜸
+        return (User2.x = User2.x + p);
     };
     User2.show = function () {
         console.log(User2.x);

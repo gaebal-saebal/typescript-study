@@ -16,7 +16,8 @@ class User2 {
   public static y = 20;
 
   static addOne(p: number) {
-    User2.x = User2.x + p;
+    // 리턴 안해주면 void 타입이라 undefined 뜸
+    return (User2.x = User2.x + p);
   }
 
   static show() {
